@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: timescale/timescaledb-ha:pg16
+    container_name: deviceTrack-db
+    restart: always
+
+    ports:
+      - "5432:5432"
+
+    environment:
+      POSTGRES_USER: deviceTrack
+      POSTGRES_PASSWORD: melmel
+      POSTGRES_DB: deviceTrack
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
