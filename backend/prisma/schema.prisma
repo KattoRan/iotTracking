@@ -5,8 +5,7 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client"
-  output   = "../generated/prisma"
+  provider = "prisma-client-js"
 }
 
 datasource db {
@@ -49,7 +48,7 @@ model location_history {
   latitude    Decimal  @db.Decimal(10, 8)
   longitude   Decimal  @db.Decimal(11, 8)
 
-  geom Unsupported("geometry(Point,4326)")
+  geom Unsupported("geometry(Point,4326)")?
 
   district    String?
   recorded_at DateTime
@@ -93,7 +92,7 @@ model bts_stations {
   lat Decimal @db.Decimal(10, 8)
   lon Decimal @db.Decimal(11, 8)
 
-  geom Unsupported("geometry(Point,4326)")
+  geom Unsupported("geometry(Point,4326)")?
 
   radio   String?
   range   Int?
